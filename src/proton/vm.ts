@@ -15,7 +15,7 @@ import { F } from "../utils/blake2";
 import { expmod } from "../utils/expmod";
 import { CodeHashResult } from "../utils/codeHash";
 import { recoverUncompressedDigest } from "../utils/curve";
-import * as bigintConversion from 'bigint-conversion'
+
 const bn128 = require('rustbn.js')
 
 type ptr = number;
