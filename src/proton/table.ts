@@ -473,14 +473,18 @@ class TableView {
     this.tab.set(primaryKey, kv)
   }
 
-  getTableRow(primaryKey: bigint | BN): any {
+  getTableRow(primaryKey: bigint | BN, serialized = false): any {
     if (BN.isBN(primaryKey)) {
       primaryKey = bnToBigInt(primaryKey)
     }
     
     const value = this.get(primaryKey)
     if (value) {
-      return Serializer.objectify(value)
+      if (serialized) {
+        return value
+      } else {
+        return Serializer.objectify(value)
+      }
     }
   }
 
